@@ -1,7 +1,7 @@
 Wa72SimpleLogger (PHP class)
 ============================
 
-Wa72SimpleLogger is a very, very simple file logger class for PHP 5.3. It implements  \Psr\Log\LoggerInterface (PSR-3), 
+Wa72SimpleLogger is a very, very simple file logger class for PHP 5.3. It is an implementation of  \Psr\Log\LoggerInterface (PSR-3), 
 the common logger interface standardized by the PHP Framework Interop Group (www.php-fig.org).
 
 Wa72SimpleLogger is intended for small projects without a framework,
@@ -10,7 +10,7 @@ sophisticated logging solutions like Monolog.
 
 If you just need to output a few log
 messages to a log file but want to stick to the PSR-3 standard (thus having the option to upgrade
-to another logger) this class is for you.
+to a more advanced logging solution implementing PSR-3) this class is for you.
 
 Installation
 ------------
