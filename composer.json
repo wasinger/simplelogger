@@ -1,0 +1,27 @@
+{
+    "name":"wa72/simplelogger",
+    "minimum-stability":"dev",
+    "description":"Wa72SimpleLogger is a very, very simple file logger implementing \\Psr\\Log\\LoggerInterface (PSR-3)",
+    "keywords":["log", "logger", "PSR-3"],
+    "homepage":"http://github.com/wasinger/simplelogger",
+    "type":"library",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"Christoph Singer",
+            "email":"singer@webagentur72.de",
+            "homepage":"http://www.webagentur72.de"
+        }
+    ],
+    "require":{
+        "php":">=5.3.1",
+        "psr/log":"1.*"
+    },
+    "minimum-stability":"dev",
+    "autoload":{
+        "psr-0":{
+            "Wa72SimpleLogger":""
+        }
+    }
+}
+
