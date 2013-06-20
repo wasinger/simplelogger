@@ -30,7 +30,7 @@ class Wa72SimpleLogger extends \Psr\Log\AbstractLogger
 
     public function log($level, $message, array $context = array())
     {
-        $logline = '[' . date('Y-m-d h:m:i') . '] ' . strtoupper($level) . ': ' . $this->interpolate($message, $context) . "\n";
+        $logline = '[' . date('Y-m-d H:i:s') . '] ' . strtoupper($level) . ': ' . $this->interpolate($message, $context) . "\n";
         file_put_contents($this->logfile, $logline, FILE_APPEND);
     }
 
