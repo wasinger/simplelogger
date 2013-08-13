@@ -1,7 +1,6 @@
 {
     "name":"wa72/simplelogger",
-    "minimum-stability":"dev",
-    "description":"Wa72SimpleLogger is a very, very simple file logger implementing \\Psr\\Log\\LoggerInterface (PSR-3)",
+    "description":"Wa72SimpleLogger is a collection of very simple loggers implementing \\Psr\\Log\\LoggerInterface (PSR-3)",
     "keywords":["log", "logger", "PSR-3"],
     "homepage":"http://github.com/wasinger/simplelogger",
     "type":"library",
@@ -17,7 +16,9 @@
         "php":">=5.3.1",
         "psr/log":"1.*"
     },
-    "minimum-stability":"dev",
+    "suggest": {
+        "symfony/console": "If you want to log to the Symfony console using Wa72ConsoleLogger"
+    },
     "autoload":{
         "psr-0":{
             "Wa72SimpleLogger":""
