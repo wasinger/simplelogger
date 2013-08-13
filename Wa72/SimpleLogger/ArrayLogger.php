@@ -1,7 +1,8 @@
 <?php
+namespace Wa72\SimpleLogger;
 use Psr\Log\AbstractLogger;
 
-class Wa72ArrayLogger extends AbstractLogger
+class ArrayLogger extends AbstractLogger
 {
     protected $memory = array();
 

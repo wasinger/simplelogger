@@ -6,7 +6,8 @@
  * @author Christoph Singer
  * @license MIT
  */
-class Wa72FileLogger extends \Psr\Log\AbstractLogger
+namespace Wa72\SimpleLogger;
+class FileLogger extends \Psr\Log\AbstractLogger
 {
     protected $logfile;
 

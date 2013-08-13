@@ -27,13 +27,13 @@ Installation
 
 -   using composer: add "wa72/simplelogger": "dev-master" to the "require" section of your composer.json
 
--   Without composer: just include the logger you need: Wa72FileLogger.php, Wa72ArrayLogger.php or Wa72ConsoleLogger.php
+-   Without composer: just include the logger you need: FileLogger.php, ArrayLogger.php or ConsoleLogger.php
 
 
 Usage
 -----
 
 ```php
-$logger = new \Wa72FileLogger('/path/to/logfile');
+$logger = new \Wa72\SimpleLogger\FileLogger('/path/to/logfile');
 $logger->info('This is the first log message');
 ```

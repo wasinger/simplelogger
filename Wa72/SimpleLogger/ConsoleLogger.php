@@ -1,8 +1,9 @@
 <?php
+namespace Wa72\SimpleLogger;
 use Psr\Log\AbstractLogger;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Wa72ConsoleLogger extends AbstractLogger {
+class ConsoleLogger extends AbstractLogger {
     /**
      * @var \Symfony\Component\Console\Output\OutputInterface
      */
