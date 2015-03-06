@@ -2,7 +2,7 @@
 /**
  * This class is a simple file logger implementing \Psr\Log\LoggerInterface (PSR-3)
  *
- * 
+ *
  * @author Christoph Singer
  * @license MIT
  */
@@ -27,12 +27,12 @@ class FileLogger extends \Psr\Log\AbstractLogger
     public function log($level, $message, array $context = array())
     {
         $logline = '[' . date('Y-m-d H:i:s') . '] ' . strtoupper($level) . ': ' . $this->interpolate($message, $context) . "\n";
-        file_put_contents($this->logfile, $logline, FILE_APPEND);
+        file_put_contents($this->logfile, $logline, FILE_APPEND | LOCK_EX);
     }
 
     /**
      * Interpolates context values into the message placeholders.
-     * 
+     *
      * This function is just copied from the example in the PSR-3 spec
      *
      */
