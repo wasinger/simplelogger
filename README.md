@@ -1,7 +1,7 @@
 Wa72SimpleLogger (collection of PHP logger classes)
 ===================================================
 
-Wa72SimpleLogger is a collection of very simple logger classes for PHP 5.3 implementing  \Psr\Log\LoggerInterface (PSR-3),
+Wa72SimpleLogger is a collection of very simple logger classes for PHP 5.4 implementing  \Psr\Log\LoggerInterface (PSR-3),
 the common logger interface standardized by the PHP Framework Interop Group (www.php-fig.org).
 
 Wa72SimpleLogger is intended for small projects or testing purposes if you don't need a full-featured logging solution

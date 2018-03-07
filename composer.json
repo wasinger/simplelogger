@@ -13,8 +13,8 @@
         }
     ],
     "require":{
-        "php":">=5.3.1",
-        "psr/log":"1.*"
+        "php":">=5.4",
+        "psr/log":"^1.0.0"
     },
     "provide": {
         "psr/log-implementation": "1.0.0"
