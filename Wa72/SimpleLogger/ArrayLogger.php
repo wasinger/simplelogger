@@ -1,13 +1,21 @@
 <?php
 namespace Wa72\SimpleLogger;
-use Psr\Log\AbstractLogger;
+use Psr\Log\LogLevel;
 
-class ArrayLogger extends AbstractLogger
+class ArrayLogger extends AbstractSimpleLogger
 {
     protected $memory = array();
 
+    public function __construct($min_level = LogLevel::DEBUG)
+    {
+        $this->min_level = $min_level;
+    }
+
     public function log($level, $message, array $context = array())
     {
+        if (!$this->min_level_reached($level)) {
+            return;
+        }
         $this->memory[] = array(
             'timestamp' => date('Y-m-d H:i:s'),
             'level' => $level,
@@ -64,5 +72,16 @@ class ArrayLogger extends AbstractLogger
     public function clear()
     {
         $this->memory = array();
+    }
+
+    /**
+     * Formatter function that can be used as parameter for the get() and getClear() methods
+     *
+     * @param array $a
+     * @return string
+     */
+    public function formatter(array $a)
+    {
+        return $this->format($a['level'], $a['message'], $a['context'], $a['timestamp']);
     }
 }

@@ -19,9 +19,6 @@
     "provide": {
         "psr/log-implementation": "1.0.0"
     },
-    "suggest": {
-        "symfony/console": "If you want to log to the Symfony console using Wa72ConsoleLogger"
-    },
     "autoload":{
         "psr-0":{
             "Wa72\\SimpleLogger":"."

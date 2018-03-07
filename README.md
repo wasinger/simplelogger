@@ -9,23 +9,22 @@ like Monolog.
 
 If you just need to output a few log messages in a small PHP project but want to stick to the PSR-3 standard this package is for you. When your project grows you can simply replace it by a more advanced logging solution like Monolog.
 
-
 Loggers
 -------
 
-- \Wa72\SimpleLogger\Filelogger: Log to a file
+- \Wa72\SimpleLogger\EchoLogger: Just echo the log message
+
+- \Wa72\SimpleLogger\FileLogger: Log to a file
 
 - \Wa72\SimpleLogger\ArrayLogger: Keep log messages in an array for later use (e.g. display it to the user)
 
-- \Wa72\SimpleLogger\ConsoleLogger: Log to the Symfony2 console
+- \Wa72\SimpleLogger\ConsoleLogger: Log to the Symfony2 console => *DEPRECATED: use `Symfony\Component\Console\Logger\ConsoleLogger` instead*
 
 
 Installation
 ------------
 
--   using composer: add "wa72/simplelogger": "dev-master" to the "require" section of your composer.json
-
--   Without composer: just include the logger you need: FileLogger.php, ArrayLogger.php or ConsoleLogger.php. Make sure \Psr\Log\LoggerInterface is included as well.
+-   `composer require wa72/simplelogger`
 
 
 Usage
@@ -36,8 +35,15 @@ $logger = new \Wa72\SimpleLogger\FileLogger('/path/to/logfile');
 $logger->info('This is the first log message');
 ```
 
+**NEW**: it's now possible to set a minimum log level in the constructor of FileLogger, EchoLogger and ArrayLogger:
 
-In one of my projects there was a "fetcher" class that fetched some information from a web service. It needed to log whether this fetch was successfull or not and how many data it fetched. It could be invoked either from the command line, by a background task, or by a user in the admin web page of the application. This was the use case for all 3 logger classes:
+```php
+$logger = new \Wa72\SimpleLogger\FileLogger('/path/to/logfile', \Psr\Log\LogLevel::ERROR);
+$logger->info('This is the first log message'); // this message will be discarded
+$logger->error('This is an error message'); // this message will be logged
+```
+
+In one of my projects there was a "fetcher" class that fetched some information from a web service. It needed to log whether this fetch was successfull or not and how many data it fetched. It could be invoked either from the command line, by a background task, or by a user in the admin web page of the application. This was the use case for three logger classes:
 
 - the fetcher class itself just logs to any PSR-3 compliant logger
 

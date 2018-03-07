@@ -7,44 +7,32 @@
  * @license MIT
  */
 namespace Wa72\SimpleLogger;
-class FileLogger extends \Psr\Log\AbstractLogger
+use Psr\Log\LogLevel;
+
+class FileLogger extends AbstractSimpleLogger
 {
     protected $logfile;
 
     /**
      * @param string $logfile Filename to log messages to (complete path)
-     * @throws \InvalidArgumentException When logfile cannot be created or is not writeable
+     * @param string $min_level
      */
-    public function __construct($logfile)
+    public function __construct($logfile, $min_level = LogLevel::DEBUG)
     {
         if (!file_exists($logfile)) {
             if (!touch($logfile)) throw new \InvalidArgumentException('Log file ' . $logfile . ' cannot be created');
         }
         if (!is_writable($logfile)) throw new \InvalidArgumentException('Log file ' . $logfile . ' is not writeable');
         $this->logfile = $logfile;
+        $this->min_level = $min_level;
     }
 
     public function log($level, $message, array $context = array())
     {
-        $logline = '[' . date('Y-m-d H:i:s') . '] ' . strtoupper($level) . ': ' . $this->interpolate($message, $context) . "\n";
-        file_put_contents($this->logfile, $logline, FILE_APPEND | LOCK_EX);
-    }
-
-    /**
-     * Interpolates context values into the message placeholders.
-     *
-     * This function is just copied from the example in the PSR-3 spec
-     *
-     */
-    protected function interpolate($message, array $context = array())
-    {
-        // build a replacement array with braces around the context keys
-        $replace = array();
-        foreach ($context as $key => $val) {
-            $replace['{' . $key . '}'] = $val;
+        if (!$this->min_level_reached($level)) {
+            return;
         }
-
-        // interpolate replacement values into the message and return
-        return strtr($message, $replace);
+        $logline = $this->format($level, $message, $context);
+        file_put_contents($this->logfile, $logline, FILE_APPEND | LOCK_EX);
     }
 }

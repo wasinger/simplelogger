@@ -3,6 +3,13 @@ namespace Wa72\SimpleLogger;
 use Psr\Log\AbstractLogger;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class ConsoleLogger
+ *
+ * This class is deprecated because nowadays the Symfony Console component itself contains a ConsoleLogger
+ *
+ * @deprecated Use Symfony\Component\Console\Logger\ConsoleLogger instead
+ */
 class ConsoleLogger extends AbstractLogger {
     /**
      * @var \Symfony\Component\Console\Output\OutputInterface
