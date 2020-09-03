@@ -24,7 +24,7 @@
     "psr/log-implementation": "1.0.0"
   },
   "autoload": {
-    "psr-0": {
+    "psr-4": {
       "Wa72\\SimpleLogger": "."
     }
   }
