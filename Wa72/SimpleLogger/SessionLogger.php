@@ -15,6 +15,9 @@ class SessionLogger extends AbstractSimpleLogger
 
     private function &getSession(): array
     {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         if (empty($_SESSION[$this->name])) {
             $_SESSION[$this->name] = [];
         }

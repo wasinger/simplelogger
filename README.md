@@ -1,7 +1,6 @@
-Wa72SimpleLogger (collection of PHP logger classes)
-===================================================
+# Wa72SimpleLogger (collection of PHP logger classes)
 
-Wa72SimpleLogger is a collection of very simple logger classes for PHP 5.4 implementing  \Psr\Log\LoggerInterface (PSR-3),
+Wa72SimpleLogger is a collection of very simple logger classes for PHP 5.4 implementing \Psr\Log\LoggerInterface (PSR-3),
 the common logger interface standardized by the PHP Framework Interop Group (www.php-fig.org).
 
 Wa72SimpleLogger is intended for small projects or testing purposes if you don't need a full-featured logging solution
@@ -9,8 +8,7 @@ like Monolog.
 
 If you just need to output a few log messages in a small PHP project but want to stick to the PSR-3 standard this package is for you. When your project grows you can simply replace it by a more advanced logging solution like Monolog.
 
-Loggers
--------
+## Loggers
 
 - \Wa72\SimpleLogger\EchoLogger: Just echo the log message
 
@@ -18,17 +16,15 @@ Loggers
 
 - \Wa72\SimpleLogger\ArrayLogger: Keep log messages in an array for later use (e.g. display it to the user)
 
-- \Wa72\SimpleLogger\ConsoleLogger: Log to the Symfony2 console => *DEPRECATED: use `Symfony\Component\Console\Logger\ConsoleLogger` instead*
+- \Wa72\SimpleLogger\SessionLogger: Keep log messages in a session for later use (e.g. display it to the user on another page)
 
+- \Wa72\SimpleLogger\ConsoleLogger: Log to the Symfony2 console => _DEPRECATED: use `Symfony\Component\Console\Logger\ConsoleLogger` instead_
 
-Installation
-------------
+## Installation
 
--   `composer require wa72/simplelogger`
+- `composer require wa72/simplelogger`
 
-
-Usage
------
+## Usage
 
 ```php
 $logger = new \Wa72\SimpleLogger\FileLogger('/path/to/logfile');
@@ -52,4 +48,3 @@ In one of my projects there was a "fetcher" class that fetched some information 
 - if called from the command line, it is given a ConsoleLogger
 
 - if called from the web interface, it is given an ArrayLogger. The output of this logger is then displayed to the user on the web page.
-
