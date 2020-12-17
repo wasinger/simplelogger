@@ -1,19 +1,17 @@
 {
-  "name": "wa72/simplelogger",
-  "description": "Wa72SimpleLogger is a collection of very simple loggers implementing \\Psr\\Log\\LoggerInterface (PSR-3)",
+  "name": "midweste/simplelogger",
+  "description": "SimpleLogger is a collection of very simple loggers implementing \\Psr\\Log\\LoggerInterface (PSR-3)",
   "keywords": [
     "log",
     "logger",
     "PSR-3"
   ],
-  "homepage": "http://github.com/wasinger/simplelogger",
+  "homepage": "http://github.com/midwest/simplelogger",
   "type": "package",
   "license": "MIT",
   "authors": [
     {
-      "name": "Christoph Singer",
-      "email": "singer@webagentur72.de",
-      "homepage": "http://www.webagentur72.de"
+      "name": "midweste"
     }
   ],
   "require": {
@@ -25,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Wa72\\SimpleLogger\\": "./"
+      "Midweste\\SimpleLogger\\": "./"
     }
   }
 }
