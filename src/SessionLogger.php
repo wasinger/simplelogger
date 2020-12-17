@@ -10,7 +10,7 @@ class SessionLogger extends AbstractSimpleLogger
     public function __construct(LogLevel $min_level = LogLevel::DEBUG, $name = '')
     {
         $this->min_level = $min_level;
-        $this->name = (!empty($name) && is_string($name)) ? $name : 'Midweste\SimpleLogger\SessionLogger';
+        $this->name = (!empty($name) && is_string($name)) ? 'Midweste\SimpleLogger\\' . $name : 'Midweste\SimpleLogger\SessionLogger';
     }
 
     private function &getSession(): array
