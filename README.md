@@ -22,7 +22,7 @@ If you just need to output a few log messages in a small PHP project but want to
 
 ## Installation
 
-- `composer require Midweste/simplelogger`
+- `composer require midweste/simplelogger`
 
 ## Usage
 
