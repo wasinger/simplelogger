@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Midweste\\SimpleLogger\\": "./"
+      "Midweste\\SimpleLogger\\": "src/"
     }
   }
 }
