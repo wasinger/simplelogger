@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This class is a simple file logger implementing \Psr\Log\LoggerInterface (PSR-3)
  *
@@ -6,7 +7,9 @@
  * @author Christoph Singer
  * @license MIT
  */
-namespace Wa72\SimpleLogger;
+
+namespace Midweste\SimpleLogger;
+
 use Psr\Log\LogLevel;
 
 class FileLogger extends AbstractSimpleLogger

@@ -1,14 +1,27 @@
 <?php
-namespace Wa72\SimpleLogger;
+
+namespace Midweste\SimpleLogger;
+
 use Psr\Log\LogLevel;
 
-class ArrayLogger extends AbstractSimpleLogger
+class SessionLogger extends AbstractSimpleLogger
 {
-    protected $memory = array();
 
-    public function __construct($min_level = LogLevel::DEBUG)
+    public function __construct($min_level = LogLevel::DEBUG, $name = '')
     {
         $this->min_level = $min_level;
+        $this->name = (!empty($name) && is_string($name)) ? 'Midweste\SimpleLogger\\' . $name : 'Midweste\SimpleLogger\SessionLogger';
+    }
+
+    private function &getSession(): array
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (empty($_SESSION[$this->name])) {
+            $_SESSION[$this->name] = [];
+        }
+        return $_SESSION[$this->name];
     }
 
     public function log($level, $message, array $context = array())
@@ -16,7 +29,7 @@ class ArrayLogger extends AbstractSimpleLogger
         if (!$this->min_level_reached($level)) {
             return;
         }
-        $this->memory[] = array(
+        $this->getSession()[] = array(
             'timestamp' => date('Y-m-d H:i:s'),
             'level' => $level,
             'message' => $message,
@@ -35,7 +48,7 @@ class ArrayLogger extends AbstractSimpleLogger
      */
     public function get($formatter = null)
     {
-        $r = $this->memory;
+        $r = $this->getSession();
         if (is_callable($formatter)) {
             foreach ($r as $i => $a) {
                 $r[$i] = call_user_func($formatter, $a);
@@ -55,7 +68,7 @@ class ArrayLogger extends AbstractSimpleLogger
      */
     public function getClear($formatter = null)
     {
-        $r = $this->memory;
+        $r = $this->getSession();
         $this->clear();
         if (is_callable($formatter)) {
             foreach ($r as $i => $a) {
@@ -71,7 +84,7 @@ class ArrayLogger extends AbstractSimpleLogger
      */
     public function clear()
     {
-        $this->memory = array();
+        unset($_SESSION[$this->name]);
     }
 
     /**

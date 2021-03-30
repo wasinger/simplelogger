@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This is a logger implementing \Psr\Log\LoggerInterface (PSR-3) that just echos the log messages
  *
@@ -6,7 +7,9 @@
  * @author Christoph Singer
  * @license MIT
  */
-namespace Wa72\SimpleLogger;
+
+namespace Midweste\SimpleLogger;
+
 use Psr\Log\LogLevel;
 
 class EchoLogger extends AbstractSimpleLogger

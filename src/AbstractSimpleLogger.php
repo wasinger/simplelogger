@@ -1,5 +1,6 @@
 <?php
-namespace Wa72\SimpleLogger;
+
+namespace Midweste\SimpleLogger;
 
 
 use Psr\Log\AbstractLogger;
@@ -50,9 +51,9 @@ abstract class AbstractSimpleLogger extends AbstractLogger
             } elseif ($val instanceof \DateTimeInterface) {
                 $replacements["{{$key}}"] = $val->format(\DateTime::RFC3339);
             } elseif (\is_object($val)) {
-                $replacements["{{$key}}"] = '[object '.\get_class($val).']';
+                $replacements["{{$key}}"] = '[object ' . \get_class($val) . ']';
             } else {
-                $replacements["{{$key}}"] = '['.\gettype($val).']';
+                $replacements["{{$key}}"] = '[' . \gettype($val) . ']';
             }
         }
 

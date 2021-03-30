@@ -1,5 +1,7 @@
 <?php
-namespace Wa72\SimpleLogger;
+
+namespace Midweste\SimpleLogger;
+
 use Psr\Log\AbstractLogger;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -10,13 +12,15 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * @deprecated Use Symfony\Component\Console\Logger\ConsoleLogger instead
  */
-class ConsoleLogger extends AbstractLogger {
+class ConsoleLogger extends AbstractLogger
+{
     /**
      * @var \Symfony\Component\Console\Output\OutputInterface
      */
     protected $out;
 
-    function __construct(OutputInterface $out) {
+    function __construct(OutputInterface $out)
+    {
         $this->out = $out;
     }
     /**
@@ -30,8 +34,7 @@ class ConsoleLogger extends AbstractLogger {
     public function log($level, $message, array $context = array())
     {
 
-        $message = '<'. $level . '>' . $message . '</'. $level . '>';
+        $message = '<' . $level . '>' . $message . '</' . $level . '>';
         $this->out->writeln($message);
     }
-
 }
