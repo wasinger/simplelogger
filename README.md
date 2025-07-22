@@ -18,7 +18,7 @@ Loggers
 
 - \Wa72\SimpleLogger\ArrayLogger: Keep log messages in an array for later use (e.g. display it to the user)
 
-- \Wa72\SimpleLogger\ConsoleLogger: Log to the Symfony2 console => *DEPRECATED: use `Symfony\Component\Console\Logger\ConsoleLogger` instead*
+- ~~\Wa72\SimpleLogger\ConsoleLogger~~: Log to the Symfony console => *REMOVED since v2: use `Symfony\Component\Console\Logger\ConsoleLogger` instead*
 
 
 Installation

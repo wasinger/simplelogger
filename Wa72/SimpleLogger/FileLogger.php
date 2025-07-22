@@ -27,7 +27,7 @@ class FileLogger extends AbstractSimpleLogger
         $this->min_level = $min_level;
     }
 
-    public function log($level, $message, array $context = array())
+    public function log($level, $message, array $context = []): void
     {
         if (!$this->min_level_reached($level)) {
             return;
